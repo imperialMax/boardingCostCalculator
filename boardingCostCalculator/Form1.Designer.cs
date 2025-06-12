@@ -83,9 +83,9 @@
             lblCostTitle.ForeColor = Color.Red;
             lblCostTitle.Location = new Point(259, 394);
             lblCostTitle.Name = "lblCostTitle";
-            lblCostTitle.Size = new Size(63, 15);
+            lblCostTitle.Size = new Size(78, 15);
             lblCostTitle.TabIndex = 4;
-            lblCostTitle.Text = "Total Cost:";
+            lblCostTitle.Text = "Total Cost:   $";
             // 
             // lblLength
             // 
@@ -158,6 +158,7 @@
             // lblOutput
             // 
             lblOutput.AutoSize = true;
+            lblOutput.ForeColor = Color.Red;
             lblOutput.Location = new Point(342, 394);
             lblOutput.Name = "lblOutput";
             lblOutput.Size = new Size(13, 15);

@@ -1,5 +1,4 @@
 using System;
-using System.Text.RegularExpressions;
 
 
 namespace boardingCostCalculator
@@ -8,7 +7,11 @@ namespace boardingCostCalculator
     {
         string fee = "";
         int factor = 0;
-        int discount = 0;
+        int discount = 1;
+        int speciesCost = 0;
+        int stayDays = 0;
+        decimal decimalWeightCost = 0;
+        decimal stayDiscount = 1;
         List<string> speciesList = new List<string>();
 
 
@@ -31,44 +34,20 @@ namespace boardingCostCalculator
 
         private void lblOutput_Click(object sender, EventArgs e)
         {
-            string petWeight = tbPet.Text;
-            // fee = $20 + speciesRate + if petWeight >= 12 , fee  1.5 per kg over
-            //try
-            //{
-
-            //}
-            //catch 
-            //{
-
-            //}
 
         }
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
+            //daily rate
             string species = tbSpecies.Text;
             species.ToLower();
             bool test = speciesList.Contains(species); 
-            if (species == "cat")
-            {
-                int speciesCost = 5;
-            }
-            if (species == "dog")
-            {
-                int speciesCost = 5;
-            }
-            if (species == "goat")
-            {
-                int speciesCost = 12;
-            }
-            if (species == "koala")
-            {
-                int speciesCost = 20;
-            }
-            if (species == "tortoise")
-            {
-                int speciesCost = 0;
-            }
+            // weight
+            string weight = tbPet.Text;
+            string stay = tbLength.Text;
+
+            //dumping discount
             if (species == "")
             {
                 MessageBox.Show("Please enter a pet.");
@@ -77,18 +56,83 @@ namespace boardingCostCalculator
             {
                 if(test == false)
                 {
-                    MessageBox.Show("please choose a pet youre supposed to");
+                    MessageBox.Show("please choose an allowed pet");
                 }
                 else
                 {
-                    MessageBox.Show("this worked");
+                    // this calculates the final one
+                    if (species == "cat")
+                    {
+                        speciesCost = 5;
+                    }
+                    if (species == "dog")
+                    {
+                        speciesCost = 5;
+                    }
+                    if (species == "goat")
+                    {
+                        speciesCost = 12;
+                    }
+                    if (species == "koala")
+                    {
+                        speciesCost = 20;
+                    }
+                    if (species == "tortoise")
+                    {
+                        speciesCost = 0;
+                    }
+
                 }
             }
+            try
+            {
+                decimal numWeight = Convert.ToDecimal(weight);
+                if (numWeight >= 12) 
+                {
+                    int intWeightCost = Convert.ToInt32(weight);
+                    intWeightCost = intWeightCost - 12;
+                    decimalWeightCost = Convert.ToDecimal(intWeightCost);
+                    decimalWeightCost = Decimal.Multiply(decimalWeightCost, 1.50m);
+                    decimalWeightCost = decimal.Add(decimalWeightCost, 1.50m); /// heres the final one
+                    //lblOutput.Text = decimalWeightCost.ToString();
+                }
 
+            }
+            catch
+            {
+                MessageBox.Show("this is the problem here");
+            }
+            try
+            {
 
+                stayDays = Convert.ToInt32(stay);
+                if (stayDays > 10)
+                {
+                    stayDiscount = 0.10m;
+                }
+                lblOutput.Text = stayDiscount.ToString();
 
+                
+            }
+            catch
+            {
+                MessageBox.Show("please enter a whole number with no spaces or special characters");
+            }
 
+            // staydiscount, decimalweightcost, speciescost
+            try
+            {   
+                
+                decimal costPerDay = stayDays * speciesCost;
+                decimal totalBefore = costPerDay + decimalWeightCost;
+                decimal total = totalBefore * stayDiscount + 20;
+                lblOutput.Text = total.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Please Try Again");
+            }
         }
-
+        
     }
 }
