@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "boardingCostCalculator", "boardingCostCalculator\boardingCostCalculator.csproj", "{10E9D71C-229F-4B5C-A97A-DE05DE466F90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10E9D71C-229F-4B5C-A97A-DE05DE466F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10E9D71C-229F-4B5C-A97A-DE05DE466F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10E9D71C-229F-4B5C-A97A-DE05DE466F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10E9D71C-229F-4B5C-A97A-DE05DE466F90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08C21A52-5290-40D6-83AD-5DAA5FB3EAE7}
+	EndGlobalSection
+EndGlobal
